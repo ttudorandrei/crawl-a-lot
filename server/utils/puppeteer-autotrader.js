@@ -13,11 +13,12 @@ const getDataFromAutotraderUK = async () => {
 
     await page.type(`#postcode`, `B258LR`);
     const make = await page.$(`[name="make"]`);
-    await make.select("Volvo"); //should come from user input
+    await make.select("BMW"); //should come from user input
 
+    // delay by half a second for the make choice come in effect
     setTimeout(async () => {
       const model = await page.$(`[name="model"]`); //should come from user input
-      await model.select("244");
+      await model.select("3 Series");
     }, 500);
 
     const maxPrice = await page.$(`[name="maxPrice"]`); //should come from user input
